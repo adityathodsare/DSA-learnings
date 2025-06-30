@@ -1,14 +1,16 @@
 package Arrays;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class two_sum {
 
     public static void main(String[] args) {
         int[] arr = {3,2,4};
-        System.out.println(Arrays.toString(twoSum(arr,6)));
+        System.out.println(Arrays.toString(twoSum1(arr,6)));
     }
-    public static int[] twoSum(int[] arr, int target) {
+    public static int[] twoSum1(int[] arr, int target) {
         int i =0;
         int j =arr.length-1;
        Arrays.sort(arr);
@@ -43,5 +45,21 @@ public class two_sum {
     }
 }
      */
+
+    public int[] twoSum(int[] nums, int target) {
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0 ; i < nums.length; i++ ){
+
+            int diff = target - nums[i];
+            if (map.containsKey(diff)){
+                return new int[]{map.get(diff), i};
+            }
+            map.put(nums[i],i);
+        }
+
+        return  null ;
+    }
 
 }
