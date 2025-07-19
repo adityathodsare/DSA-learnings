@@ -9,16 +9,18 @@ public class productExceptSelf {
         }
     }
     public static int[] productExceptSelf(int[] nums) {
-        for (int i =0 ; i< nums.length; i++ ){
-           nums[i] =1;
-            for (int j = 0; j< nums.length; j++){
-               if (nums[i]== nums[j]){
-                   continue;
-               }
-                nums[i] = nums[i]*nums[j];
-            }
-
+        int n = nums.length;
+        int arr[]= new int [n];
+        arr[0]=1;
+        for(int i=1;i<n;i++){
+            arr[i]=arr[i-1]*nums[i-1];
         }
-        return nums;
+        int sufix=1;
+        for(int i= n-1;i>-1;i--){
+            arr[i]*=sufix;
+            sufix*=nums[i];
+        }
+
+        return arr;
     }
 }
