@@ -1,11 +1,30 @@
 package twoDArray;
 
 public class spiralMatrix {
-    public static  void createSpiralMatrix(int[][] matrix){
-        int startRow = 0;
-        int startCol = 0;
-        int endRow = matrix.length-1;
-        int endCol = matrix[0].length-1;
 
-    }
+        public int maxProduct(int[] nums) {
+            int n = nums.length;
+            int ans = Integer.MIN_VALUE;
+            int prefix =1;
+            int suffix = 1 ;
+
+            for(int i =0 ; i<=n-1 ; i++){
+
+
+                if(prefix == 0 ){
+                    prefix = 1 ;
+                }
+                if(suffix == 0 ){
+                    suffix = 1 ;
+                }
+                prefix = prefix * nums[i];
+                suffix = suffix * nums[n-i-1];
+                ans = Math.max(ans, Math.max(prefix,suffix ));
+            }
+
+            return ans;
+        }
+
+
+
 }
