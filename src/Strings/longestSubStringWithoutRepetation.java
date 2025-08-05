@@ -4,22 +4,23 @@ import java.util.*;
 
 public class longestSubStringWithoutRepetation {
     public static int lengthOfLongestSubstring(String s) {
-        if (s.length()==0){
-            return 0;
-        }
+        Map<Character,Integer> map = new HashMap<>();
+        int start =0;
         int max = 0;
-        Map<Character, Integer> map = new HashMap<>();
-        for (int i =0; i<s.length(); i++){
-            if (! map.containsKey(s.charAt(i))){
-                map.put( s.charAt(i), map.getOrDefault(s.charAt(0),max)+1);
+        for (int end =0; end<s.length(); end++){
+            if (map.containsKey(s.charAt(end) ) && map.get(s.charAt(end))>=start){
+                start = map.get(s.charAt(end))+1;
+                System.out.println("start: "+start);
             }
-            max =Math.max(max,map.size());
-            return max;
+            map.put(s.charAt(end), end);
+            System.out.println(map);
+            max = Math.max (max, end-start+1);
+            System.out.println(max);
         }
-        return max;
+        return  max;
     }
 
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(lengthOfLongestSubstring("pwwkew"));
     }
 }
