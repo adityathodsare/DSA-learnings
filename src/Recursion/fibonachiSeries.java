@@ -2,21 +2,17 @@ package Recursion;
 
 public class fibonachiSeries {
     public static void main(String[] args) {
-        printFibo(1);
+        System.out.println(printFibo(6));
     }
 
-    public static  void printFibo(int start){
-
-
-        int temp =0;
-        int fib = temp + start;
-        temp++;
-        System.out.println(fib);
-
-        if (fib > 10){
-            return;
+    public static  int printFibo(int n){
+        if (n<=0){
+            return 0;
+        }else if (n == 1){
+            return  1;
         }
-        printFibo(fib);
-
+        int a = printFibo(n-1);
+        int b = printFibo(n-2);
+       return a+b;
     }
 }
