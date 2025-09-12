@@ -2,20 +2,15 @@ package Arrays;
 
 public class ConvertIntegerToTheSumOfTwoNonZeroInteger1317 {
     public int[] getNoZeroIntegers(int n) {
-        int arr [] = new int[2];
-        if (isEven(n)){
-            arr[0] = n/2;
-            arr[1] = n/2;
-        }else{
-            arr[0] = n/2;
-            arr[1] = n/2 +1;
+        for(int i =1; i<n; i++){
+            int j =n-i;
+            if (!String.valueOf(i).contains("0") && !String.valueOf(j).contains("0")){
+                return new int[]{i,j};
+            }
         }
-        return arr;
+        return  new int[0];
     }
-    public Boolean isEven(int n){
-        if (n%2 ==0){
-            return true;
-        }
-        return false;
-    }
+
+
+
 }
