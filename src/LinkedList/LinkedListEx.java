@@ -10,6 +10,10 @@ public class LinkedListEx {
             this.data = data  ;
             this.nextNode = null;
         }
+        Node(int data, Node nextNode ){
+            this.data = data  ;
+            this.nextNode = nextNode;
+        }
     }
 
     public  void insertToFirst(int data ){
