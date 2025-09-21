@@ -16,9 +16,12 @@ public class DisplayStackRecursively {
     }
     static Stack<Integer> st2 = new Stack<>();
     public static void displayStackRec(Stack<Integer> st1){
-        System.out.println(st2.push(st1.pop()));
-        if (!st1.isEmpty()){
-            displayStackRec(st1);
+        if (st1.isEmpty()){
+            return;
         }
+        int top = st1.pop();
+        displayStackRec(st1);
+        System.out.println(top);
+        st1.push(top);
     }
 }
