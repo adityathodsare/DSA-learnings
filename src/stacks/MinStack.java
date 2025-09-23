@@ -1,10 +1,12 @@
 package stacks;
 
+import java.util.Stack;
+
 public class MinStack {
 
 
     public MinStack() {
-        MinStack min = new MinStack();
+        Stack<Integer> st = new Stack<>();
     }
 
     public void push(int val) {
